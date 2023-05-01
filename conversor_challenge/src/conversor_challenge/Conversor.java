@@ -1,21 +1,34 @@
 package conversor_challenge;
 
-public class Conversor {
-	private int cantidad=20;
-	private int radioDeCambio = 20;
+public abstract class Conversor {
+	private double cantidad;
+	private double radioDeCambio; //Radio de r y s. 
+	//Ej si peso=r y monedaExtranjera=s=1 radioDeCambio=r/s=r
 	
 	public Conversor() {
 	}
 	
-	//Agregar otras clases que sean las que hagan la funcion convertir, ver de clases pasadas la clase Administrador como refencia
-	public int convertirMexExt() {
-		int convertir = this.cantidad / this.radioDeCambio;
-		return convertir;
+	public double getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(double cantidad) {
+		this.cantidad = cantidad;
+	}
+
+	public double getRadioDeCambio() {
+		return radioDeCambio;
+	}
+
+	public void setRadioDeCambio(double radioDeCambio) {
+		this.radioDeCambio = radioDeCambio;
 	}
 	
-	public int convertirExtMex() {
-		int convertir = this.cantidad * this.radioDeCambio;
-		return convertir;
-	}
+	
+	//Agregar otras clases que sean las que hagan la funcion convertir, ver de clases pasadas la clase Administrador como refencia
+	public abstract double convertirRAS();
+	
+	public abstract double convertirSAR();
+
 }
 
