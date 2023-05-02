@@ -2,6 +2,7 @@ package conversor_challenge;
 
 import javax.swing.JOptionPane;
 
+import conversor_challenge_monedas.ConversionSeleccionada;
 import conversor_challenge_monedas.ConversorPesoDolar;
 import conversor_challenge_monedas.ConversorPesoEuro;
 
@@ -27,29 +28,37 @@ public class ConversorMain {
 		String conversionMoneda = (String) JOptionPane.showInputDialog(null, "Escoge el conversor", 
 				titulo, JOptionPane.QUESTION_MESSAGE, null, conversionMonedaList, conversionMonedaList[0]);
 		
-		double resultado=0;
-		String tipoMoneda="";
 		
-		if (conversionMoneda == "Peso a Dólar" || conversionMoneda == "Dólar a peso") {
-			ConversorMoneda x= new ConversorPesoDolar(cantidad);
-			
-			if (conversionMoneda == "Peso a Dólar") {
-				 resultado = x.convertirRAS();
-				 tipoMoneda = " dolares";
-				 if (resultado == 1) {
-				 tipoMoneda = " dolar";
-				 };	 	
-			} else if (conversionMoneda == "Dólar a peso") {
-				 resultado = x.convertirSAR();
-				 tipoMoneda = " pesos";
-				 if (resultado == 1) {
-				 tipoMoneda = " peso";
-				 }
-			}
-			JOptionPane.showMessageDialog(null,"Son " + resultado + tipoMoneda,
-					titulo , JOptionPane.INFORMATION_MESSAGE);
+		
+		
+		new ConversionSeleccionada(conversionMoneda, cantidad, titulo).metodoDeConversionElegida();
+		
+		
+		
+		
+//		double resultado=0;
+//		String tipoMoneda="";
+//		
+//		if (conversionMoneda == "Peso a Dólar" || conversionMoneda == "Dólar a peso") {
+//			ConversorMoneda x= new ConversorPesoDolar(cantidad);
+//			
+//			if (conversionMoneda == "Peso a Dólar") {
+//				 resultado = x.convertirRAS();
+//				 tipoMoneda = " dolares";
+//				 if (resultado == 1) {
+//				 tipoMoneda = " dolar";
+//				 };	 	
+//			} else if (conversionMoneda == "Dólar a peso") {
+//				 resultado = x.convertirSAR();
+//				 tipoMoneda = " pesos";
+//				 if (resultado == 1) {
+//				 tipoMoneda = " peso";
+//				 }
+//			}
+//			JOptionPane.showMessageDialog(null,"Son " + resultado + tipoMoneda,
+//					titulo , JOptionPane.INFORMATION_MESSAGE);
 			//System.out.println(cantidad);
-		}
+// }
 		
 		
         

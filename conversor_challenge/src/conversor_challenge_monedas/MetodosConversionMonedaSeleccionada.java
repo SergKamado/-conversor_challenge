@@ -25,25 +25,17 @@ public class MetodosConversionMonedaSeleccionada {
 		this.tipoMoneda = tipoMoneda;
 	}
 	
-	public void llamada(String tipoMoneda, String tipoMonedaUno) {
-		if (tipoMoneda == "dolares") {
-			 if (this.resultado == 1) {
-				 this.tipoMoneda = " " + tipoMonedaUno;
-			 }}
-	}
 	
-	public void metodoMonedaDatos(	ConversorMoneda x, String tipoMoneda, String tipoMonedaUno) {
-	 this.resultado = x.convertirRAS();
-	 this.tipoMoneda = " " + tipoMoneda;
-	 if (tipoMoneda == "dolares") {
-		 if (this.resultado == 1) {
-			 this.tipoMoneda = " " + tipoMonedaUno;
-		 } else if (tipoMoneda == "pesos") {
-		 this.resultado = x.convertirSAR();
-		 if (this.resultado == 1) {
-			 this.tipoMoneda = " peso";
-		 } 
+	public void metodoMonedaDatos(	ConversorMoneda x, String tipoMoneda, String tipoMonedaUnitaria) {
+		if (tipoMoneda == "pesos") {
+			 this.resultado = x.convertirSAR();
+			 } else {
+				 this.resultado = x.convertirRAS();
+			 };
+		if (this.resultado == 1) {
+			 this.tipoMoneda = tipoMonedaUnitaria;
+		 } else {this.tipoMoneda = tipoMoneda;}
+		
 	 
-	}
 }
-	}}
+	}
